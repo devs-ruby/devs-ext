@@ -1,3 +1,3 @@
-require 'ext/version'
+require 'devs/ext/version'
 
 require 'devs/devs'
