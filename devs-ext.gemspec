@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'devs/ext'
+require 'devs/ext/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "devs-ext"
@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency('rake-compiler', '~> 0.9')
   spec.add_development_dependency('pry', '~> 0.9')
 
-  spec.add_dependency('devs', '~> 1.0')
+  spec.add_dependency('devs', '~> 0.5')
 
   if RUBY_PLATFORM =~ /java/
     spec.platform = "java"
@@ -34,4 +34,6 @@ Gem::Specification.new do |spec|
     spec.add_development_dependency('pry-nav')
     spec.add_development_dependency('pry-stack_explorer')
   end
+
+  spec.required_ruby_version = '>= 1.9.2'
 end

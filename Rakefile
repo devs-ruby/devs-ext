@@ -10,6 +10,7 @@ if RUBY_PLATFORM =~ /java/
   end
 else
   Rake::ExtensionTask.new('devs') do |ext|
+    ext.ext_dir = 'ext/devs'
     ext.lib_dir = 'lib/devs'
   end
 end
