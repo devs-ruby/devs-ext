@@ -38,7 +38,7 @@ fetch_output_bang(VALUE self) {
 
     for (i = 0; i < RARRAY_LEN(output_ports); i++) {
         VALUE port = rb_ary_entry(output_ports, i);
-        VALUE value = rb_funcall(port, rb_intern("pick_up"), 0)
+        VALUE value = rb_funcall(port, rb_intern("pick_up"), 0);
         if (value != Qnil) {
             VALUE msg = rb_funcall(
                 cDEVSMessage,
