@@ -205,7 +205,7 @@ handle_output_event(VALUE self, VALUE event) {
             3,
             ID2SYM(rb_intern("input")),
             time,
-            rb_ary_new(1, msg2)
+            rb_ary_new3(1, msg2)
         );
 
         rb_funcall(child, DISPATCH_ID, 1, ev);
