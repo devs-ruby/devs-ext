@@ -11,6 +11,7 @@
 
 #include <processor.h>
 #include <coordinator.h>
+#include <atomic_model.h>
 #include <coupled_model.h>
 #include <classic_simulator_impl.h>
 #include <classic_coordinator_impl.h>
