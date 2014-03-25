@@ -100,7 +100,7 @@ handle_input_event(VALUE self, VALUE event) {
                 3,
                 ID2SYM(rb_intern("input")),
                 rb_float_new(ev_time),
-                rb_ary_new_from_args(1, msg2)
+                rb_ary_new3(1, msg2)
             );
             rb_funcall(child, DISPATCH_ID, 1, ev);
         }
@@ -205,7 +205,7 @@ handle_output_event(VALUE self, VALUE event) {
             3,
             ID2SYM(rb_intern("input")),
             time,
-            rb_ary_new_from_args(1, msg2)
+            rb_ary_new(1, msg2)
         );
 
         rb_funcall(child, DISPATCH_ID, 1, ev);

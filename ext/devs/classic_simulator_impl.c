@@ -138,7 +138,7 @@ handle_internal_event(VALUE self, VALUE event) {
             3,
             ID2SYM(rb_intern("output")),
             rb_float_new(ev_time),
-            rb_ary_new_from_args(1, msg)
+            rb_ary_new3(1, msg)
         );
 
 #ifdef DEBUG

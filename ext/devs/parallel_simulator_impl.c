@@ -168,7 +168,7 @@ handle_internal_event(VALUE self, VALUE event) {
 static VALUE
 frozen_bag(VALUE self, VALUE bag) {
     long i;
-    VALUE ret = rb_ary_new_capa(RARRAY_LEN(bag));
+    VALUE ret = rb_ary_new2(RARRAY_LEN(bag));
 
     for (i = 0; i < RARRAY_LEN(bag); i++) {
         VALUE msg = rb_funcall(self,
