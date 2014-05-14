@@ -14,14 +14,29 @@ init_devs_coupled_model() {
 
     cDEVSCoupledModel = klass;
 
-    rb_define_private_method(klass, "each_coupling", each_coupling, 2);
+    rb_define_method(klass, "each_coupling", each_coupling, 2);
 }
 
-
+/*
+* call-seq:
+*   each_coupling
+*
+* Calls <tt>block</tt> once for each coupling in passing that element as a
+* parameter. If a port is given, it is used to filter the couplings having
+* this port as a source.
+*
+* @param ary [Array] the array of couplings, defaults to {#couplings}
+* @param port [Port, nil] the source port or nil
+* @yieldparam coupling [Coupling] the coupling that is yielded
+*/
 static VALUE
 each_coupling(VALUE self, VALUE ary, VALUE port) {
-    VALUE result;
-    long i;
+    VALUE result, coupling, port_src;
+    long i, len;
+
+    if (NIL_P(ary)) {
+        ary = rb_funcall(self, rb_intern("couplings"), 0);
+    }
 
     if (NIL_P(port)) {
         if (rb_block_given_p()) {
